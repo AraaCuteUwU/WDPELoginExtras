@@ -1,0 +1,7 @@
+name: WDPELoginExtras
+version: 0.0.1
+author: cooldogedev
+website: https://cooldogepm/WDPELoginExtras
+api: [ 5.0.0 ]
+main: cooldogedev\WDPELoginExtras\Loader
+src-namespace-prefix: cooldogedev\WDPELoginExtras
