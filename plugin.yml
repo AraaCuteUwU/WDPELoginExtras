@@ -1,6 +1,7 @@
 name: WDPELoginExtras
 version: 0.0.1
 author: cooldogedev
+description: This plugin makes use of WaterdogPE's extra login fields
 website: https://cooldogepm/WDPELoginExtras
 api: [ 5.0.0 ]
 main: cooldogedev\WDPELoginExtras\Loader
