@@ -59,7 +59,7 @@ final class Loader extends PluginBase implements Listener
                 return;
             }
 
-            $this->xuidMap[$clientData->Waterdog_IP . ":" . $origin->getPort()] = [$clientData->Waterdog_XUID, $clientData->Waterdog_IP];
+            $this->xuidMap[$clientData->Waterdog_IP . ":" . $origin->getPort()] = $clientData->Waterdog_XUID;
 
             $origin->setHandler(new LoginHandler(
                 server: $this->getServer(),
@@ -84,7 +84,7 @@ final class Loader extends PluginBase implements Listener
     {
         $networkSession = $event->getNetworkSession();
         $info = $networkSession->getPlayerInfo();
-        [$xuid, $ip] = $this->xuidMap[$event->getAddress() . ":" . $event->getPort()] ?? null;
+        $xuid = $this->xuidMap[$event->getAddress() . ":" . $event->getPort()] ?? null;
 
         if ($xuid !== null) {
             $reflection = new ReflectionClass($networkSession);
@@ -100,7 +100,7 @@ final class Loader extends PluginBase implements Listener
         $player = $event->getPlayer();
         $networkSession = $player->getNetworkSession();
 
-        [$xuid, $ip] = $this->xuidMap[$networkSession->getIp() . ":" . $networkSession->getPort()] ?? null;
+        $xuid = $this->xuidMap[$networkSession->getIp() . ":" . $networkSession->getPort()] ?? null;
 
         if ($xuid !== null) {
             $class = new ReflectionClass($player);
