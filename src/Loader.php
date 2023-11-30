@@ -42,7 +42,6 @@ final class Loader extends PluginBase implements Listener
             try {
                 [, $claim,] = JwtUtils::parse($packet->clientDataJwt);
             } catch (JwtException) {
-                $origin->disconnect("Invalid JWT");
                 return;
             }
 
@@ -55,7 +54,6 @@ final class Loader extends PluginBase implements Listener
                 /** @var ClientData $clientData */
                 $clientData = $mapper->map($claim, new ClientData());
             } catch (JsonMapper_Exception) {
-                $origin->disconnect("Failed to parse JWT");
                 return;
             }
 
