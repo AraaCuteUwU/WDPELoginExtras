@@ -92,8 +92,7 @@ final class LoginHandler extends PacketHandler
 
         $ev = new PlayerPreLoginEvent(
             $playerInfo,
-            $this->session->getIp(),
-            $this->session->getPort(),
+            $this->session,
             $this->server->requiresAuthentication()
         );
         if ($this->server->getNetwork()->getValidConnectionCount() > $this->server->getMaxPlayers()) {
